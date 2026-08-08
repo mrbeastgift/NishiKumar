@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Digital | Modern Performance Marketing & Ads Agency</title>
+    <style>
+        :root {
+            --primary: #0071e3;
+            --primary-hover: #0077ed;
+            --bg-gray: #f5f5f7;
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --text-dark: #1d1d1f;
+            --text-muted: #86868b;
+            --border-light: rgba(0, 0, 0, 0.08);
+            --radius-lg: 22px;
+            --radius-md: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg-gray);
+            color: var(--text-dark);
+            line-height: 1.5;
+            padding-top: 70px;
+        }
+
+        /* iOS Blur Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            opacity: 0.8;
+            transition: opacity 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 20px 60px;
+            text-align: center;
+            background: radial-gradient(circle at top, rgba(0, 113, 227, 0.08) 0%, rgba(245, 245, 247, 0) 70%);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(0, 113, 227, 0.1);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            color: var(--text-dark);
+            max-width: 800px;
+            margin: 0 auto 20px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto 35px;
+            font-weight: 400;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 113, 227, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .cta-btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        /* Section Styling */
+        section {
+            margin: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.8px;
+            margin-bottom: 40px;
+        }
+
+        /* Services iOS Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 35px 30px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Pricing Cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .price-card {
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+
+        .price-card.featured {
+            border: 2px solid var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 113, 227, 0.15);
+        }
+
+        .price-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .price-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .price-amount {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .price-features {
+            list-style: none;
+            margin: 20px 0 30px;
+            text-align: left;
+        }
+
+        .price-features li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Compliance & Legal Sections */
+        .policy-box {
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border-light);
+        }
+
+        .policy-box h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .policy-box p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        /* Contact Details Grid */
+        .contact-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            background: var(--bg-gray);
+            padding: 20px;
+            border-radius: var(--radius-md);
+        }
+
+        .contact-item h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+        }
+
+        .contact-item p {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-light);
+            margin-top: 60px;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .nav-links {
+                display: none; /* iOS Minimal design for mobile navigation */
+            }
+            .policy-box {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- iOS Glassmorphism Navigation -->
+    <nav>
+        <div class="logo">Apex Digital</div>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact">Contact</a>
+            <a href="#policies">Policies</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <span class="hero-badge">Verified Performance Marketing Agency</span>
+        <h1>Data-Driven Growth & Campaign Management</h1>
+        <p>We craft high-converting ad strategies, Meta & Google Paid Ads, and enterprise Search Engine Optimization for growing brands.</p>
+        <a href="#contact" class="cta-btn">Get Started</a>
+    </section>
+
+    <div class="container">
+
+        <!-- Services Section -->
+        <section id="services">
+            <h2 class="section-title">Our Expertise</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-tag">Performance</div>
+                    <h3>Paid Campaign Management</h3>
+                    <p>End-to-end management for Meta (Facebook/Instagram) and Google Ads designed to maximize ROAS and eliminate wasted ad spend.</p>
+                </div>
+                <div class="card">
+                    <div class="card-tag">Strategy</div>
+                    <h3>Social Media Growth</h3>
+                    <p>Comprehensive digital positioning, content funnel strategy, and brand engagement solutions tailored to modern audiences.</p>
+                </div>
+                <div class="card">
+                    <div class="card-tag">Optimization</div>
+                    <h3>Technical & Local SEO</h3>
+                    <p>Comprehensive search engine audits, site speed optimization, and keyword targeting to drive organic inbound customer leads.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing">
+            <h2 class="section-title">Transparent Service Packages</h2>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <div class="price-title">Audit & Strategy</div>
+                    <div class="price-amount">₹1,999</div>
+                    <ul class="price-features">
+                        <li>Complete Ad Account Audit</li>
+                        <li>Target Audience Blueprint</li>
+                        <li>1-on-1 Strategy Session</li>
+                    </ul>
+                </div>
+
+                <div class="price-card featured">
+                    <div class="price-title">Campaign Setup</div>
+                    <div class="price-amount">₹4,999</div>
+                    <ul class="price-features">
+                        <li>Pixel & Conversion Tracking</li>
+                        <li>A/B Testing Setup</li>
+                        <li>2 Custom Ad Creatives Included</li>
+                    </ul>
+                </div>
+
+                <div class="price-card">
+                    <div class="price-title">Monthly Retainer</div>
+                    <div class="price-amount">₹9,999</div>
+                    <ul class="price-features">
+                        <li>Full Meta & Google Ad Management</li>
+                        <li>Weekly ROAS Reporting</li>
+                        <li>Continuous Creative Optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compliance & Legal Policies (Required for Razorpay Approval) -->
+        <section id="policies">
+            <h2 class="section-title">Company & Legal Information</h2>
+
+            <div id="contact" class="policy-box">
+                <h2>Contact & Support</h2>
+                <p>Reach out to our professional team for consultation or inquiries regarding ongoing media campaigns.</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <h4>Business Name</h4>
+                        <p>Apex Digital Growth Solutions</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>Support Email</h4>
+                        <p>support@yourdomain.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>Phone Number</h4>
+                        <p>+91 9876543210</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>Office Address</h4>
+                        <p>Sector 15, Business Hub, New Delhi - 110001</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="policy-box">
+                <h2>Terms and Conditions</h2>
+                <p>Apex Digital provides media planning, digital advertising execution, and marketing analytics services. All engagements are subject to a formal Service Level Agreement (SLA). Payments received cover labor, consulting hours, and campaign creation.</p>
+            </div>
+
+            <div class="policy-box">
+                <h2>Privacy Policy</h2>
+                <p>We maintain strict confidentiality over client strategy and consumer data. Personal data collected through lead forms is utilized exclusively for client management and campaign reporting. We never sell or share user data with unauthorized third parties.</p>
+            </div>
+
+            <div class="policy-box">
+                <h2>Refund & Cancellation Policy</h2>
+                <p>Clients may request a full refund within 24 hours of purchasing a retainer or strategy session, provided no execution work has commenced. Once ad creation, setup, or campaign auditing has begun, fees become non-refundable. Approved refunds are processed back to the original payment source within 5 to 7 business days.</p>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        &copy; 2026 Apex Digital Growth Solutions. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
